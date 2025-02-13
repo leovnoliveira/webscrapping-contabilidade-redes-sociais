@@ -1,0 +1,28 @@
+[project]
+name = "webscrapping-contabilidade-redes-sociais"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "leovnoliveira",email = "consultoria1.ceo@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas (>=2.2.3,<3.0.0)",
+    "numpy (>=2.2.2,<3.0.0)",
+    "beautifulsoup4 (>=4.13.3,<5.0.0)",
+    "selenium (>=4.28.1,<5.0.0)",
+    "textblob (>=0.19.0,<0.20.0)",
+    "wordcloud (>=1.9.4,<2.0.0)",
+    "matplotlib (>=3.10.0,<4.0.0)",
+    "seaborn (>=0.13.2,<0.14.0)",
+    "plotly (>=6.0.0,<7.0.0)",
+    "python-dotenv (>=1.0.1,<2.0.0)",
+    "google-api-python-client (>=2.160.0,<3.0.0)",
+    "tweepy (>=4.15.0,<5.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
