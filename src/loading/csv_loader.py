@@ -21,7 +21,7 @@ def carregar_dados_youtube(video_data, comentarios,
     df_comentarios = pd.DataFrame(comentarios_transformados, columns=["comentario"])
     df_comentarios.to_csv(arquivo_comentarios, index=False, encoding="utf-8")
 
-def carregar_dados_twitter(tweets, arquivo="dados_twitter.csv"):
+def carregar_dados_x(tweets, arquivo="dados_twitter.csv"):
     """
     Processa e salva os dados do Twitter em arquivo CSV.
     """
@@ -38,5 +38,5 @@ def carregar_dados_twitter(tweets, arquivo="dados_twitter.csv"):
             "favorite_count": tweet.get("favorite_count", 0)
         })
     
-    df_twitter = pd.DataFrame(registros)
-    df_twitter.to_csv(arquivo, index=False, encoding="utf-8")
+    df_x = pd.DataFrame(registros)
+    df_x.to_csv(arquivo, index=False, encoding="utf-8")

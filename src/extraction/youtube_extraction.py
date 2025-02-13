@@ -1,5 +1,5 @@
 from googleapiclient.discovery import build
-from utils.config import *
+from src.utils.config import *
 
 
 def extrair_dados_youtube(api_key, video_id):

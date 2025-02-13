@@ -1,19 +1,19 @@
 from src.utils.config import carregar_variaveis_sensiveis
 from src.extraction.youtube_extraction import extrair_dados_youtube
-from src.extraction.twitter_extraction import extrair_dados_twitter
-from src.loading.csv_loader import carregar_dados_youtube, carregar_dados_twitter
+from src.extraction.x_extraction import extrair_dados_x
+from src.loading.csv_loader import carregar_dados_youtube, carregar_dados_x
 
 def main():
     # Carrega as variáveis sensíveis
     config = carregar_variaveis_sensiveis()
 
     # Extração dos dados
-    VIDEO_ID = "ID_DO_VIDEO_EXEMPLO"  # Substitua pelo ID correto do vídeo
+    VIDEO_ID = "ydWXdLIBWDY"  # Substitua pelo ID correto do vídeo
     video_data, comentarios = extrair_dados_youtube(config["YOUTUBE_API_KEY"], VIDEO_ID)
     
-    tweets = extrair_dados_twitter(
+    tweets = extrair_dados_x(
         config["TWITTER_BEARER_TOKEN"],  # ou outro token conforme sua implementação
-        config["CONSULTA_TWITTER"],
+        config["CONSULTA_X"],
         max_results=10
     )
 
@@ -22,7 +22,7 @@ def main():
 
     # Carregamento dos dados
     carregar_dados_youtube(video_data, comentarios)
-    carregar_dados_twitter(tweets)
+    carregar_dados_x(tweets)
 
     print("Pipeline ETL concluído com sucesso!")
 

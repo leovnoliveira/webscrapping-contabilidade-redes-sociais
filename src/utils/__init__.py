@@ -1,4 +1,4 @@
-from config import carregar_variaveis_sensiveis
+from src.utils.config import carregar_variaveis_sensiveis
 from dotenv import load_dotenv
 
 if __name__ == "__main__":

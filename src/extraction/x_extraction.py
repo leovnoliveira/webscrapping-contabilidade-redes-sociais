@@ -1,4 +1,5 @@
-from etl import *
+import tweepy
+import time
 
 
 def extrair_dados_x(bearer_token, query, max_results=10):
@@ -31,4 +32,4 @@ def extrair_dados_x(bearer_token, query, max_results=10):
             time.sleep(wait_time)
             # Após o período de espera, tenta novamente
 
-            return extrair_dados_twitter(bearer_token, query, max_results)
+            return extrair_dados_x(bearer_token, query, max_results)
