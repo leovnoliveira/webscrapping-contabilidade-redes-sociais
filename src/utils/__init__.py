@@ -1,3 +1,4 @@
+import os
 from src.utils.config import carregar_variaveis_sensiveis
 from dotenv import load_dotenv
 
@@ -13,3 +14,5 @@ if __name__ == "__main__":
     config = carregar_variaveis_sensiveis()
     BEARER_TOKEN = config["BEARER_TOKEN"]
     CONSULTA_X = config["CONSULTA_X"]
+    YOUTUBE_API_KEY = config['YOUTUBE_API_KEY']
+    

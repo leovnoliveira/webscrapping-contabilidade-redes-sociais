@@ -1,5 +1,8 @@
 from src.transformation.text_transformation import transformar_texto
 import pandas as pd
+from datetime import datetime
+from datetime import timedelta
+from datetime import date
 
 ###########################################
 # ETAPA 3: CARGA
@@ -13,6 +16,7 @@ def carregar_dados_youtube(video_data, comentarios,
     """
     # Processa a descrição do vídeo
     video_data["descricao"] = transformar_texto(video_data.get("descricao", ""))
+    video_data['data_publicacao'] = pd.to_datetime(video_data['data_publicacao'], format = "%Y-%m-%dT%H:%M:%SZ")
     df_video = pd.DataFrame([video_data])
     df_video.to_csv(arquivo_video, index=False, encoding="utf-8")
     

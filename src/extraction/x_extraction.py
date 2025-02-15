@@ -2,7 +2,7 @@ import tweepy
 import time
 
 
-def extrair_dados_x(bearer_token, query, max_results=10):
+def extrair_dados_x(bearer_token, consulta, max_results=10):
 
     """
     Extraí dados do X (tweets, retweets e replies) utilizando a API do X    
@@ -11,6 +11,13 @@ def extrair_dados_x(bearer_token, query, max_results=10):
     # Autenticação com API do Twitter
 
     client = tweepy.Client(bearer_token=bearer_token)
+
+    if isinstance(consulta, list):
+        query = " OR ".join(consulta)
+    else:
+        query = consulta
+
+    print("Consulta realizada foi:", query)
 
     try:
         response = client.search_recent_tweets(query = query, max_results = max_results)
@@ -32,4 +39,4 @@ def extrair_dados_x(bearer_token, query, max_results=10):
             time.sleep(wait_time)
             # Após o período de espera, tenta novamente
 
-            return extrair_dados_x(bearer_token, query, max_results)
+            return extrair_dados_x(bearer_token, consulta, max_results)

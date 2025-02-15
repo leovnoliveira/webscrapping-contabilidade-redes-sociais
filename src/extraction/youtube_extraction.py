@@ -9,7 +9,7 @@ def extrair_dados_youtube(api_key, video_id):
     
     """
 
-    youtube = build('youtube', 'v3', developerKey=api_key)
+    youtube = build('youtube', 'v3', developerKey=api_key, credentials = None)
 
     # Extração dos dados do vídeo (descrição, título, data de publicação etc)
 
@@ -19,7 +19,7 @@ def extrair_dados_youtube(api_key, video_id):
     ).execute()
 
     video_data = {}
-    if resposta_video['items']:
+    if resposta_video.get('items'):
         snippet = resposta_video['items'][0]['snippet']
         video_data = {
             "video_id": video_id,

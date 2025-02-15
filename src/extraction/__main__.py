@@ -1,15 +1,19 @@
+import os
+from src.utils import *
 from src.extraction.x_extraction import extrair_dados_x
 from src.extraction.youtube_extraction import extrair_dados_youtube
-from src.utils import *
 
-if __name__ == "__main__":
+def main():
+
+    dotenv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), ".env")
+    print("Procurando .env em:", dotenv_path )
+    load_dotenv(dotenv_path=dotenv_path)
 
     config = carregar_variaveis_sensiveis()
     print("Rodando extração de dados...")
 
-    # Exemplo de execução
     VIDEO_ID = "Js8yNAOTws8"
-    video_data, comentarios = extrair_dados_youtube(config["YOUTUBE_API_KEY"], VIDEO_ID)
+    video_data, comentarios = extrair_dados_youtube(api_key=config.get("YOUTUBE_API_KEY"), video_id= VIDEO_ID)
 
     tweets = extrair_dados_x(
         config["BEARER_TOKEN"],
@@ -18,3 +22,10 @@ if __name__ == "__main__":
     )
 
     print(f"Total de tweets extraídos: {len(tweets)}")
+    print(f"Conteúdo dos tweets extraíos: {tweets}")
+    print(f"Total de videos coletados: {len(video_data)}")
+    print(f"Total de comentários coletados: {len(comentarios)}")
+
+
+if __name__ == "__main__":
+    main()

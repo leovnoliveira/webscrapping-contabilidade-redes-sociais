@@ -1,5 +1,5 @@
-from csv_loader import carregar_dados_youtube
-from csv_loader import carregar_dados_x
+from src.loading.csv_loader import carregar_dados_youtube
+from src.loading.csv_loader import carregar_dados_x
 
 if __name__ == "__main__":
 
